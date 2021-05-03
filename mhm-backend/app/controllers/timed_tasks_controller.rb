@@ -1,0 +1,2 @@
+class TimedTasksController < ApplicationController
+end

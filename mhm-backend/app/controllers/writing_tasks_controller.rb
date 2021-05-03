@@ -1,0 +1,2 @@
+class WritingTasksController < ApplicationController
+end
