@@ -3,6 +3,7 @@ class CreateWritingTasks < ActiveRecord::Migration[6.1]
     create_table :writing_tasks do |t|
       t.string :name
       t.text :entry
+      t.integer :points
       t.integer :goal_id
 
       t.timestamps
