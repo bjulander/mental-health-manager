@@ -1,2 +1,0 @@
-class CheckTasksController < ApplicationController
-end
