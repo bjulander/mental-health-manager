@@ -1,4 +1,5 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id
-  belongs_to :day
+  attributes :id, :name
+  has_one :day
+  has_one :category
 end

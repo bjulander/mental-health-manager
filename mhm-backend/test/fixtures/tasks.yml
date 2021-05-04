@@ -2,6 +2,10 @@
 
 one:
   name: MyString
+  day: one
+  category: one
 
 two:
   name: MyString
+  day: two
+  category: two

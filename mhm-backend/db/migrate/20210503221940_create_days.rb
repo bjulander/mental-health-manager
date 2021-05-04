@@ -1,7 +1,7 @@
-class CreateGoals < ActiveRecord::Migration[6.1]
+class CreateDays < ActiveRecord::Migration[6.1]
   def change
-    create_table :goals do |t|
-      t.string :day
+    create_table :days do |t|
+      t.string :name
       t.date :date
       t.integer :current_total
 
