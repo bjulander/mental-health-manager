@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 2021_05_04_215612) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "days", force: :cascade do |t|
+  create_table "goals", force: :cascade do |t|
     t.string "name"
     t.integer "current_total", default: 0
+    t.integer "ending_total", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,14 +32,14 @@ ActiveRecord::Schema.define(version: 2021_05_04_215612) do
     t.text "content", default: " "
     t.integer "value"
     t.boolean "complete", default: false
-    t.integer "day_id", null: false
+    t.integer "goal_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_tasks_on_category_id"
-    t.index ["day_id"], name: "index_tasks_on_day_id"
+    t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
   add_foreign_key "tasks", "categories"
-  add_foreign_key "tasks", "days"
+  add_foreign_key "tasks", "goals"
 end
