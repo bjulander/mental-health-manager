@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Category.create(name: "Verbal")
+Category.create(name: "Writing")
+Category.create(name: "Timed")
+
+Day.create(name: "Monday")
+Day.create(name: "Tuesday")
+Day.create(name: "Wednesday")
+
+Task.create(category_type: "Verbal", name: "Say aloud 5 things you like about yourself", value: 5, category_id: 1, day_id: 1)
+Task.create(category_type: "Writing", name: "Write down 3 affirmations", value: 10, category_id: 2, day_id: 2)
+Task.create(category_type: "Timed", name: "10-minute Meditation", value: 15, category_id: 3, day_id: 3)

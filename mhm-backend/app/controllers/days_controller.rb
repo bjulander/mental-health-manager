@@ -1,2 +1,2 @@
-class DayController < ApplicationController
+class DaysController < ApplicationController
 end

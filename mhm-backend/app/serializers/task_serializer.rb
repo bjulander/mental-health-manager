@@ -1,5 +1,5 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :category_type, :name, :content, :value, :complete
   has_one :day
   has_one :category
 end

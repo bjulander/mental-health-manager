@@ -1,4 +1,4 @@
 class DaySerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :name, :current_total
   has_many :tasks
 end
