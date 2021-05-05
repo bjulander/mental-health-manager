@@ -24,7 +24,7 @@
   </div>
   <br>
   <div id="newDailyGoal">
-    <label><h3>Daily Goal "current date"</h3></label>
+    <label><h3>Current Goal </h3></label>
   </div>
 
 
@@ -41,6 +41,13 @@
 
 <div id="taskLibrary">
   <label><h3>Task Library</h3></label>
+  <label for="selectCategory">Filter Tasks By Type:</label>
+    <select id="categoryDropdown" name="selectCategory">
+      <option value="Verbal">Verbal</option>
+      <option value="Writing">Writing</option>
+      <option value="Timed">Timed</option>
+    </select>
+    <ul id="taskList"></ul>
 </div>
   <script src="src/tasks.js"></script>
   <script src="src/categories.js"></script>

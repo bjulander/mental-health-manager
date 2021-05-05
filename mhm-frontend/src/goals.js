@@ -8,7 +8,6 @@ function appendGoal(goal){
     const dailyGoal = document.getElementById("newDailyGoal")
         const gl = document.createElement("li")
         gl.innerText = goal.date + " " + goal.name
-        console.log(goal)
         dailyGoal.append(gl)
 }
 

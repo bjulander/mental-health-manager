@@ -3,17 +3,49 @@
 function allTasks(){
     fetch("http://localhost:3000/tasks")
     .then(resp => resp.json())
-    .then(appendTasks)
+    .then(results => {
+        tasks = results
+        listAllTasks(tasks)
+        taskLibraryFilterListener()
+    })
 }
 
-function appendTasks(tasks){
-    const taskLib = document.getElementById("taskLibrary")
-    for (let task of tasks){
-        const tsk = document.createElement("li")
-        tsk.innerText = task.category_type + ": " + task.name + ". " + task.value + " points"
-        taskLib.append(tsk)
+function listAllTasks(tasks) {
+    let ul = document.querySelector('#taskList');
+    removeChildren(ul);
+    tasks.forEach(task => addTask(task));
+  }
+
+  function removeChildren(element) {
+    let child = element.lastElementChild;
+    while (child) {
+      element.removeChild(child);
+      child = element.lastElementChild;
     }
+  }
+
+  function addTask(task) {
+    let ul = document.querySelector('#taskList');
+    let li = document.createElement('li');
+    li.innerText = task.category_type + ": " + task.name + ". " + task.value + " points"
+    li.style.cursor = 'pointer';
+    ul.appendChild(li);
+  }
+
+  function taskLibraryFilterListener() {
+    let catDropdown = document.querySelector('#categoryDropdown');
+    catDropdown.addEventListener('change', function (event) {
+      filterTaskLibrary(event.target.value);
+    });
+  }
+
+  function filterTaskLibrary(categoryType) {
+    listAllTasks(tasks.filter(task => task.category_type === categoryType))
 }
+
+  
+
+
 
 
 
