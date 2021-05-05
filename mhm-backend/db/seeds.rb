@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Goal.create(name: "Monday")
-Goal.create(name: "Tuesday")
-Goal.create(name: "Wednesday")
+Goal.create(day: "Monday", date: "May 3rd")
+Goal.create(day: "Tuesday", date: "May the Fourth")
+Goal.create(day: "Wednesday", date: "Revenge of the Fifth")
 
 Task.create(category: "Verbal", name: "Say aloud 5 things you like about yourself", value: 5)
 Task.create(category: "Writing", name: "Write down 3 affirmations", value: 10)

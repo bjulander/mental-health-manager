@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.date "date"
-    t.string "name"
+    t.string "day"
+    t.string "date"
     t.integer "current_total", default: 0
     t.integer "ending_total", default: 0
     t.datetime "created_at", precision: 6, null: false
