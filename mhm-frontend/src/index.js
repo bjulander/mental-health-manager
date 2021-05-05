@@ -1,1 +1,3 @@
 allTasks()
+
+newGoal()
