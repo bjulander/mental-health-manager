@@ -26,10 +26,12 @@ function listAllTasks(tasks) {
 
   function addTask(task) {
     let ul = document.querySelector('#taskList');
-    let li = document.createElement('li');
+    let li = document.createElement('article');
+    let btn = document.createElement('button');
     li.innerText = task.category_type + ": " + task.name + ". " + task.value + " points"
-    li.style.cursor = 'pointer';
+    btn.innerText = "add" 
     ul.appendChild(li);
+    li.appendChild(btn);
   }
 
   function taskLibraryFilterListener() {
