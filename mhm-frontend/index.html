@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
     <meta charset="UTF-8">
-  <title>Mental Health Manager</title>
-  <style>
-    <link rel="styles" href="styles/application.css">
-  </style>
+    <link rel="stylesheet" href="styles/hiddenGoalForm.css">
+    <title>Mental Health Manager</title>
+    <style>
+      body {font-family: Helvetica, sans-serif;}
+    </style>
+  </head>
 
-
-<!-- Body -->
-<body>
+  <body>
     <header>
-        <h1>Welcome!</h1>
+        <h1>Welcome!</h1> 
     </header>
+
+ <!---Top Textbox-->
   <div id="topTextBox">
+    <div>
+      <label for="morningEntry">Morning Affirmation:</label>
       <form id="morningEntry">
-          <label>
-              <h4>Morning Affirmation:</h4>
-          </label>
           <textarea type="text"></textarea>
           <input type="submit" value="Save">
       </form>
+    </div>
   </div>
   <br>
 
-
-
-
+  <!--Hidden Form--->
   <div id="newDailyGoal">
     <h3>Daily Goal </h3>
     <button id="createBtn">New Goal</button>
@@ -53,8 +54,7 @@
     </div>
   </div>
 
-
-
+ <!---Bottom Textbox-->
   <div id="bottomTextBox">
     <form id="nightlyEntry">
         <label>
@@ -63,10 +63,11 @@
         <textarea type="text"></textarea>
         <input type ="submit" value="Save">
     </form>
-</div>
+  </div>
 
-<div id="taskLibrary">
-  <label><h3>Task Library</h3></label>
+ <!--Task Library-->
+  <div id="taskLibrary">
+    <h3>Task Library</h3>
   <label for="selectCategory">Filter Tasks By Type:</label>
     <select id="categoryDropdown" name="selectCategory">
       <option value="Verbal">Verbal</option>
@@ -74,12 +75,13 @@
       <option value="Timed">Timed</option>
     </select>
     <ul id="taskList"></ul>
-</div>
+  </div>
+
   <script src="src/tasks.js"></script>
   <script src="src/goalTasks.js"></script>
   <script src="src/goals.js"></script>
   <script src="src/index.js"></script>
-</body>
+  </body>
 </html>
 
 

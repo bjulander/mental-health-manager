@@ -4,18 +4,13 @@ const span = document.getElementsByClassName("close")[0]
 
 
 function createNewGoal(e){
-    e.preventDefault
-    e.style.display = "block"
+    hiddenGoalForm.style.display = "block"
     console.log(e)
 }
 
-createBtn.onclick = function() {
-    hiddenGoalForm.style.display = "block";
-  }
-
-  span.onclick = function() {
-    hiddenGoalForm.style.display = "none";
-  }
+function closeModal(){
+    hiddenGoalForm.style.display = "none"
+}
 
 
 
