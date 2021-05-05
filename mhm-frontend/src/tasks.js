@@ -28,7 +28,7 @@ function listAllTasks(tasks) {
     let ul = document.querySelector('#taskList');
     let li = document.createElement('article');
     let btn = document.createElement('button');
-    li.innerText = task.category_type + ": " + task.name + ". " + task.value + " points"
+    li.innerText = task.category + ": " + task.name + ". " + task.value + " points"
     btn.innerText = "add" 
     ul.appendChild(li);
     li.appendChild(btn);
@@ -42,13 +42,16 @@ function listAllTasks(tasks) {
   }
 
   function filterTaskLibrary(categoryType) {
-    listAllTasks(tasks.filter(task => task.category_type === categoryType))
+    listAllTasks(tasks.filter(task => task.category === categoryType))
 }
 
-  
-
-
-
+function clickableButton(){
+    let btn = document.querySelectorAll("button")
+    console.log(btn)
+    // btn.addEventListener('click', function(event){
+    //     console.log(event) 
+    // })
+}
 
 
 

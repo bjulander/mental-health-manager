@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Category.create(name: "Verbal")
-Category.create(name: "Writing")
-Category.create(name: "Timed")
-
 Goal.create(name: "Monday")
 Goal.create(name: "Tuesday")
 Goal.create(name: "Wednesday")
 
-Task.create(category_type: "Verbal", name: "Say aloud 5 things you like about yourself", value: 5, category_id: 1, goal_id: 1)
-Task.create(category_type: "Writing", name: "Write down 3 affirmations", value: 10, category_id: 2, goal_id: 2)
-Task.create(category_type: "Timed", name: "10-minute Meditation", value: 15, category_id: 3, goal_id: 3)
+Task.create(category: "Verbal", name: "Say aloud 5 things you like about yourself", value: 5)
+Task.create(category: "Writing", name: "Write down 3 affirmations", value: 10)
+Task.create(category: "Timed", name: "10-minute Meditation", value: 15)
+
+GoalTask.create(goal_id: 1, task_id: 1)
+GoalTask.create(goal_id: 2, task_id: 2)
+GoalTask.create(goal_id: 3, task_id: 3)

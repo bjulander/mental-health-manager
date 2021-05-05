@@ -1,5 +1,5 @@
 function newGoal(){
-    fetch("http://localhost:3000/goals/1")
+    fetch("http://localhost:3000/goals")
     .then(resp => resp.json())
     .then(appendGoal)
 }

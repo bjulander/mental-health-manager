@@ -1,4 +1,3 @@
 class Task < ApplicationRecord
-  belongs_to :goal
-  belongs_to :category
+  has_many :goal_tasks
 end

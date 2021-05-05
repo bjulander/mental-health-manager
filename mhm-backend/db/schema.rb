@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_215612) do
+ActiveRecord::Schema.define(version: 2021_05_05_184346) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
+  create_table "goal_tasks", force: :cascade do |t|
+    t.integer "goal_id", null: false
+    t.integer "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_goal_tasks_on_goal_id"
+    t.index ["task_id"], name: "index_goal_tasks_on_task_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -28,19 +31,15 @@ ActiveRecord::Schema.define(version: 2021_05_04_215612) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "category_type"
+    t.string "category"
     t.text "name"
     t.text "content", default: " "
     t.integer "value"
     t.boolean "complete", default: false
-    t.integer "goal_id", null: false
-    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_tasks_on_category_id"
-    t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
-  add_foreign_key "tasks", "categories"
-  add_foreign_key "tasks", "goals"
+  add_foreign_key "goal_tasks", "goals"
+  add_foreign_key "goal_tasks", "tasks"
 end
