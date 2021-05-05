@@ -6,10 +6,8 @@ class GoalsController < ApplicationController
     end
 
     def create
-        goal = Goal.new(goal_params)
-        if goal.save
-            render json: goal
-        end
+        goal = Goal.create(goal_params)
+        render json: goal
     end
 
     def show
