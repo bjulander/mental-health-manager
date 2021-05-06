@@ -36,9 +36,11 @@ function postGoal(e){
 }
 
 function appendGoal(goal){
+    debugger
     const dailyGoal = document.getElementById("newDailyGoal")
         const gl = document.createElement("article")
         gl.innerText = goal.day + " " + goal.date + " " + goal.current_total + "/" + goal.set_goal + " of goal!"
+        gl.id = `new-${goal.id}`
         dailyGoal.append(gl)
 }
 

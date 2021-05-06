@@ -5,20 +5,30 @@ const libraryFilter = document.getElementById("categoryDropdown")
 function allTasks(){
     fetch("http://localhost:3000/tasks")
     .then(resp => resp.json())
-    .then(listAllTasks)
+    .then(shuffleAllTasks)
 }
 
-function listAllTasks(tasks) {
+function shuffleAllTasks(tasks) {
+  let currentIndex = tasks.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+    temporaryValue = tasks[currentIndex]
+    tasks[currentIndex] = tasks[randomIndex]
+    tasks[randomIndex] = temporaryValue
+  }
   tasks.forEach(task => appendTask(task))
 }
+
 
 function appendTask(task){
       let btn = document.createElement('button');
       let ct = document.createElement("article")
       ct.innerText = task.category + ". " + task.points + " points. " + task.name + ". "
-      ul.append(ct)
       btn.innerText = "add" 
-      btn.addEventListener('click', postDupTask) //goalTasks
+      btn.id = `btn-${task.id}`
+      btn.addEventListener('click', getTask) //goalTasks
+      ul.append(ct)
       ct.appendChild(btn)
 }
 
@@ -44,6 +54,14 @@ function appendTask(task){
     .then(res => res.json())
     .then(appendTask)
   }
+
+  function getTask(e){
+    let dupTask = e.target.id
+    let dupInt = dupTask.replace(/\D/g, "")
+    fetch(`http://localhost:3000/tasks/${dupInt}`)
+    .then(res => res.json())
+    .then(postDupTask)
+}
 
   function taskLibraryFilterListener(event) {
     let search = event.target.value

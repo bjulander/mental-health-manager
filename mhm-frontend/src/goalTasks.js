@@ -1,18 +1,14 @@
-function postDupTask(e){
-    console.log(e.target)
-}
-
-
-function postTask(e){
-    e.preventDefault()
-    const inputCat = e.target.children[1].value
-    const inputPoints = e.target.children[2].value
-    const inputText = e.target.children[4].value
+function postDupTask(dupTask){
+    const dupCat = dupTask.category
+    const dupPoints = dupTask.points
+    const dupName = dupTask.name
+    const taskId = dupTask.id
     const body = {
-        task: {
-            category: inputCat, 
-            points: inputPoints,
-            name: inputText
+        goalTask: {
+            category: dupCat, 
+            points: dupPoints,
+            name: dupName,
+            task_id: taskId
         }
     }
     const options = {
@@ -21,7 +17,11 @@ function postTask(e){
             "Content-Type": "application/json"},
         body: JSON.stringify(body)
     }
-    fetch("http://localhost:3000/tasks", options)
+    fetch("http://localhost:3000/goal_tasks", options)
     .then(res => res.json())
-    .then(appendTask)
-  }
+    .then(appendDupTask)
+}
+
+function appendDupTask(dupTask){
+    console.log(dupTask)
+}
