@@ -28,7 +28,7 @@ function listAllTasks(tasks) {
     let ul = document.querySelector('#taskList');
     let li = document.createElement('article');
     let btn = document.createElement('button');
-    li.innerText = task.category + ": " + task.name + ". " + task.value + " points"
+    li.innerText = task.category + ". " + task.value + " points. " + task.name + ". "
     btn.innerText = "add" 
     ul.appendChild(li);
     li.appendChild(btn);

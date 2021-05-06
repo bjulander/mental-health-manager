@@ -4,10 +4,8 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/hiddenGoalForm.css">
+    <link rel="stylesheet" href="styles/application.css">
     <title>Mental Health Manager</title>
-    <style>
-      body {font-family: Helvetica, sans-serif;}
-    </style>
   </head>
 
   <body>
@@ -17,24 +15,18 @@
 
  <!---Top Textbox-->
   <div id="topTextBox">
-    <div>
       <label for="morningEntry">Morning Affirmation:</label>
       <form id="morningEntry">
           <textarea type="text"></textarea>
           <input type="submit" value="Save">
       </form>
     </div>
-  </div>
-  <br>
 
   <!--Hidden Form--->
   <div id="newDailyGoal">
     <h3>Daily Goal </h3>
     <button id="createBtn">New Goal</button>
-      <div id="hiddenGoalForm" class="divContent">
-        <div class="modal-header">
-          <h4>Create new goal</h4>
-        </div>
+      <article id="hiddenGoalForm" class="divContent">
         <form id="newGoalForm" class="formContent">
           <span class="close">&times;</span>
           <label>Date:</label>
@@ -50,9 +42,8 @@
             </select>
           <input type="submit" value="Create">
         </form>
-      </div>
+      </article>
     </div>
-  </div>
 
  <!---Bottom Textbox-->
   <div id="bottomTextBox">

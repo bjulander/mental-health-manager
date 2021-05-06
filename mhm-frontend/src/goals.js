@@ -1,9 +1,14 @@
 const hiddenGoalForm = document.getElementById('hiddenGoalForm')
 const createBtn = document.getElementById("createBtn")
+const span = document.getElementsByClassName("close")[0]
 const newGoalForm = document.getElementById("newGoalForm")
 
 function openModal(){
     hiddenGoalForm.style.display = "block"
+}
+
+function closeModal(){
+    hiddenGoalForm.style.display = "none"
 }
 
 function postGoal(e){
@@ -23,7 +28,6 @@ function postGoal(e){
             "Content-Type": "application/json"},
         body: JSON.stringify(body)
     }
-    e.target.reset()
     fetch("http://localhost:3000/goals", options)
     .then(res => res.json())
     .then(appendGoal)
