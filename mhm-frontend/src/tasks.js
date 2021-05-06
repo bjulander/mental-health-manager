@@ -1,58 +1,59 @@
-
+const customTask = document.getElementById("customTask")
+const ul = document.querySelector('#taskList')
+const libraryFilter = document.getElementById("categoryDropdown")
 
 function allTasks(){
     fetch("http://localhost:3000/tasks")
     .then(resp => resp.json())
-    .then(results => {
-        tasks = results
-        listAllTasks(tasks)
-        taskLibraryFilterListener()
-    })
+    .then(listAllTasks)
 }
 
 function listAllTasks(tasks) {
-    let ul = document.querySelector('#taskList');
-    removeChildren(ul);
-    tasks.forEach(task => addTask(task));
-  }
+  tasks.forEach(task => appendTask(task))
+}
 
-  function removeChildren(element) {
-    let child = element.lastElementChild;
-    while (child) {
-      element.removeChild(child);
-      child = element.lastElementChild;
+function appendTask(task){
+      let btn = document.createElement('button');
+      let ct = document.createElement("article")
+      ct.innerText = task.category + ". " + task.points + " points. " + task.name + ". "
+      ul.append(ct)
+      btn.innerText = "add" 
+      btn.addEventListener('click', postDupTask) //goalTasks
+      ct.appendChild(btn)
+}
+
+  function postTask(e){
+    e.preventDefault()
+    const inputCat = e.target.children[1].value
+    const inputPoints = e.target.children[2].value
+    const inputText = e.target.children[4].value
+    const body = {
+        task: {
+            category: inputCat, 
+            points: inputPoints,
+            name: inputText
+        }
     }
+    const options = {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    }
+    fetch("http://localhost:3000/tasks", options)
+    .then(res => res.json())
+    .then(appendTask)
   }
 
-  function addTask(task) {
-    let ul = document.querySelector('#taskList');
-    let li = document.createElement('article');
-    let btn = document.createElement('button');
-    li.innerText = task.category + ". " + task.value + " points. " + task.name + ". "
-    btn.innerText = "add" 
-    ul.appendChild(li);
-    li.appendChild(btn);
-  }
+  function taskLibraryFilterListener(event) {
+    let search = event.target.value
+      filterTaskLibrary(search)
+    }
 
-  function taskLibraryFilterListener() {
-    let catDropdown = document.querySelector('#categoryDropdown');
-    catDropdown.addEventListener('change', function (event) {
-      filterTaskLibrary(event.target.value);
-    });
-  }
-
-  function filterTaskLibrary(categoryType) {
-    listAllTasks(tasks.filter(task => task.category === categoryType))
+  function filterTaskLibrary(search) {
+    debugger
+    listAllTasks(tasks.filter(task => task.category === search))
 }
-
-function clickableButton(){
-    let btn = document.querySelectorAll("button")
-    console.log(btn)
-    // btn.addEventListener('click', function(event){
-    //     console.log(event) 
-    // })
-}
-
 
 
 

@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.string :category
       t.text :name
       t.text :content, default: " "
-      t.integer :value
+      t.integer :points
       t.boolean :complete, default: false
 
       t.timestamps

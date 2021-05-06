@@ -10,13 +10,14 @@ class TasksController < ApplicationController
     end
 
     def create
-        task = Task.new(task_params)
+        task = Task.create(task_params)
+        render json: task
     end
 
 
     private
 
     def task_params
-        params.require(:task).permit(:category, :name, :content, :value, :complete)
+        params.require(:task).permit(:category, :name, :content, :points, :complete)
     end
 end

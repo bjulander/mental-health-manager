@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
     t.string "category"
     t.text "name"
     t.text "content", default: " "
-    t.integer "value"
+    t.integer "points"
     t.boolean "complete", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

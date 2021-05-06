@@ -68,6 +68,20 @@
       <option value="Timed">Timed</option>
     </select>
     <ul id="taskList"></ul>
+    <article>
+      <form id="customTask">
+        <label>Create a new task!</label>
+        <select id="categoryDrop" name="selectCat">
+          <option value="Verbal">Verbal</option>
+          <option value="Writing">Writing</option>
+          <option value="Timed">Timed</option>
+        </select>
+        <input type="number" style="width: 30px;" min="5" max="20">
+        <label>Task:</label>
+        <input type="text">
+        <input type="submit" value="Create">
+      </form>
+    </article>
   </article>
 
   <script src="src/tasks.js"></script>
