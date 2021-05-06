@@ -11,7 +11,7 @@ Goal.create(day: "Monday", date: "May 3rd")
 Goal.create(day: "Tuesday", date: "May the Fourth")
 Goal.create(day: "Wednesday", date: "Revenge of the Fifth")
 
-Task.create(category: "Verbal", name: "Say aloud 5 things you like about yourself", value: 5)
+Task.create(category: "Verbal", name: "Say aloud 5 good attributes about yourself", value: 5)
 Task.create(category: "Writing", name: "Write down 3 affirmations", value: 10)
 Task.create(category: "Timed", name: "10-minute Meditation", value: 15)
 

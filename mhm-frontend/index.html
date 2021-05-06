@@ -40,6 +40,8 @@
               <option value="Friday">Friday</option>
               <option value="Saturday">Saturday</option>
             </select>
+            <label>Goal:</label>
+            <input type="number" style="width: 30px;"></input>
           <input type="submit" value="Create">
         </form>
       </article>
@@ -57,7 +59,7 @@
   </div>
 
  <!--Task Library-->
-  <div id="taskLibrary">
+  <article id="taskLibrary">
     <h3>Task Library</h3>
   <label for="selectCategory">Filter Tasks By Type:</label>
     <select id="categoryDropdown" name="selectCategory">
@@ -66,7 +68,7 @@
       <option value="Timed">Timed</option>
     </select>
     <ul id="taskList"></ul>
-  </div>
+  </article>
 
   <script src="src/tasks.js"></script>
   <script src="src/goalTasks.js"></script>

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
   create_table "goals", force: :cascade do |t|
     t.string "day"
     t.string "date"
+    t.integer "set_goal", default: 0
     t.integer "current_total", default: 0
     t.integer "ending_total", default: 0
     t.datetime "created_at", precision: 6, null: false

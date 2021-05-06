@@ -16,10 +16,12 @@ function postGoal(e){
     e.preventDefault()
     const inputDate = e.target.children[2].value
     const inputDay = e.target.children[3].value
+    const inputGoal = e.target.children[5].value
     const body = {
         goal: {
             day: inputDay, 
-            date: inputDate
+            date: inputDate,
+            set_goal: inputGoal
         }
     }
     const options = {
@@ -36,7 +38,7 @@ function postGoal(e){
 function appendGoal(goal){
     const dailyGoal = document.getElementById("newDailyGoal")
         const gl = document.createElement("article")
-        gl.innerText = goal.day + " " + goal.date
+        gl.innerText = goal.day + " " + goal.date + " " + goal.current_total + "/" + goal.set_goal
         dailyGoal.append(gl)
 }
 
