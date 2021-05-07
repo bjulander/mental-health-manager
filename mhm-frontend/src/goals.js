@@ -53,7 +53,7 @@ function appendGoal(goal){
         heart.innerHTML = "&#x2661"
         heart.id = `heart-${goal.id}`
         heart.addEventListener("click", likeHeart)
-        gl.innerText = goal.day + " " + goal.date + " " + goal.current_total + "/" + goal.set_goal + " of goal!"
+        gl.innerText = goal.day + ". " + goal.date + ". Today's goal: " + goal.set_goal + " points!"
         gl.id = `goal-${goal.id}`
         gl.append(heart)
         dailyGoal.append(gl)

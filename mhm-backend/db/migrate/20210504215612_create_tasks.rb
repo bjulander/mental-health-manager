@@ -3,8 +3,7 @@ class CreateTasks < ActiveRecord::Migration[6.1]
     create_table :tasks do |t|
       t.string :category
       t.text :name
-      t.text :content, default: " "
-      t.integer :points
+      t.integer :points, default: 0
       
       t.timestamps
     end

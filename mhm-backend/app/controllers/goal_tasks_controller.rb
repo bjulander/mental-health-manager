@@ -10,6 +10,6 @@ class GoalTasksController < ApplicationController
     private
 
     def goal_task_params
-        params.require(:goalTask).permit(:category, :name, :content, :points, :task_id, :goal_id)
+        params.require(:goalTask).permit(:category, :name, :points, :task_id, :goal_id)
     end
 end

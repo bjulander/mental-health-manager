@@ -4,8 +4,6 @@ class CreateGoals < ActiveRecord::Migration[6.1]
       t.string :day
       t.string :date
       t.integer :set_goal, default: 0
-      t.integer :current_total, default: 0
-      t.integer :ending_total, default: 0
 
       t.timestamps
     end

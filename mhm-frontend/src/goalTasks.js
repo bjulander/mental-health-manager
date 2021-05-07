@@ -24,7 +24,7 @@ function postDupTask(dupTask){
 }
 
 function appendDupTask(dupTask){
-    let dailyGoal = document.getElementById(`goal-${goalId}`)//make dynamic`${dupTask.goal_id}`
+    let dailyGoal = document.getElementById(`goal-${goalId}`)
     let inpt = document.createElement("input")
     let art = document.createElement("article")
     let btn = document.createElement("button")
