@@ -3,27 +3,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/hiddenGoalForm.css">
     <link rel="stylesheet" href="styles/application.css">
     <title>Mental Health Manager</title>
   </head>
 
   <body>
-    <header>
-        <h1>Welcome!</h1> 
-    </header>
+      <div class="topMargin">
+          <img src="images/shapes.gif" style="width: 100%;">
+    </div>
 
  <!---Top Textbox-->
-  <div id="topTextBox">
+  <div class="topBox" id="topTextBox">
+    <div class="morningBox">
       <label for="morningEntry">Morning Affirmation:</label>
       <form id="morningEntry">
-          <textarea type="text"></textarea>
+          <textarea type="text" rows="5" style="width:100%;"></textarea>
           <input type="submit" value="Save">
       </form>
     </div>
+  </div>
 
   <!--Hidden Form--->
-  <div id="newDailyGoal">
+  <div class="dailyGoal" id="newDailyGoal">
     <h3>Daily Goal </h3>
     <button id="createBtn">New Goal</button>
       <article id="hiddenGoalForm" class="divContent">
@@ -47,19 +51,8 @@
       </article>
     </div>
 
- <!---Bottom Textbox-->
-  <div id="bottomTextBox">
-    <form id="nightlyEntry">
-        <label>
-            <h4>Daily review:</h4>
-        </label>
-        <textarea type="text"></textarea>
-        <input type ="submit" value="Save">
-    </form>
-  </div>
-
  <!--Task Library-->
-  <article id="taskLibrary">
+  <article class="taskLib" id="taskLibrary">
     <h3>Task Library</h3>
   <label for="selectCategory">Filter Tasks By Type:</label>
     <select id="categoryDropdown" name="selectCategory">
