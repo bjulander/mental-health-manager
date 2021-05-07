@@ -8,6 +8,7 @@ body {
     overflow: hidden;
     width: auto;
     text-align: center;
+    /* background-image: url("images/shapes.gif"); */
 }
 
 
@@ -44,11 +45,8 @@ body {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.imgBreathing{
-    background-image: url("images/breathing.gif");
-    opacity: 0.5;
+    background-image: url("images/Headspace-Guide-to-Meditation.jpeg");
+    opacity: 0.8
 }
 
 article {
@@ -60,4 +58,5 @@ article {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #f5faff;
 }
