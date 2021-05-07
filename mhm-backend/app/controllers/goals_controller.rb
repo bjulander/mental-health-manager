@@ -10,11 +10,6 @@ class GoalsController < ApplicationController
         render json: goal
     end
 
-    def show
-        goal = Goal.find_by(id: params[:id])
-        render json: goal
-    end
-
     private 
     
     def goal_params

@@ -3,6 +3,17 @@ const createBtn = document.getElementById("createBtn")
 const span = document.getElementsByClassName("close")[0]
 const newGoalForm = document.getElementById("newGoalForm")
 
+let glyphStates = {
+    "♡": "♥",
+    "♥": "♡"
+  }
+  
+  let colorStates = {
+    "red" : "",
+    "": "red"
+  }
+
+
 function openModal(){
     hiddenGoalForm.style.display = "block"
 }
@@ -36,11 +47,21 @@ function postGoal(e){
 }
 
 function appendGoal(goal){
-    debugger
     const dailyGoal = document.getElementById("newDailyGoal")
         const gl = document.createElement("article")
+        const heart = document.createElement("span")
+        heart.innerHTML = "&#x2661"
+        heart.id = `heart-${goal.id}`
+        heart.addEventListener("click", likeHeart)
         gl.innerText = goal.day + " " + goal.date + " " + goal.current_total + "/" + goal.set_goal + " of goal!"
-        gl.id = `new-${goal.id}`
+        gl.id = `goal-${goal.id}`
+        gl.append(heart)
         dailyGoal.append(gl)
 }
 
+function likeHeart(e){
+    let heart = e.target
+    heart.innerText = glyphStates[heart.innerText];
+    heart.style.color = colorStates[heart.style.color]
+    window.goalId = heart.id.replace(/\D/g, "")
+}

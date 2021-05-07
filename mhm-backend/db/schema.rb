@@ -17,13 +17,10 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
     t.text "name"
     t.text "content", default: " "
     t.integer "points"
-    t.boolean "complete", default: false
-    t.integer "goal_id", null: false
-    t.integer "task_id", null: false
+    t.integer "goal_id"
+    t.integer "task_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["goal_id"], name: "index_goal_tasks_on_goal_id"
-    t.index ["task_id"], name: "index_goal_tasks_on_task_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -45,6 +42,4 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "goal_tasks", "goals"
-  add_foreign_key "goal_tasks", "tasks"
 end

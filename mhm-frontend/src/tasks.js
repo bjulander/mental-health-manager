@@ -22,14 +22,14 @@ function shuffleAllTasks(tasks) {
 
 
 function appendTask(task){
-      let btn = document.createElement('button');
-      let ct = document.createElement("article")
-      ct.innerText = task.category + ". " + task.points + " points. " + task.name + ". "
+      let btn = document.createElement('button')
+      let art = document.createElement("article")
+      art.innerText = task.category + ". " + task.points + " points. " + task.name + ". "
       btn.innerText = "add" 
       btn.id = `btn-${task.id}`
       btn.addEventListener('click', getTask) //goalTasks
-      ul.append(ct)
-      ct.appendChild(btn)
+      ul.append(art)
+      art.appendChild(btn)
 }
 
   function postTask(e){

@@ -1,4 +1,4 @@
-function postDupTask(dupTask){
+function postDupTask(dupTask){   
     const dupCat = dupTask.category
     const dupPoints = dupTask.points
     const dupName = dupTask.name
@@ -8,7 +8,8 @@ function postDupTask(dupTask){
             category: dupCat, 
             points: dupPoints,
             name: dupName,
-            task_id: taskId
+            task_id: taskId,
+            goal_id: goalId
         }
     }
     const options = {
@@ -23,5 +24,20 @@ function postDupTask(dupTask){
 }
 
 function appendDupTask(dupTask){
-    console.log(dupTask)
+    let dailyGoal = document.getElementById(`goal-${goalId}`)//make dynamic`${dupTask.goal_id}`
+    let inpt = document.createElement("input")
+    let art = document.createElement("article")
+    inpt.type = "checkbox"
+    inpt.value = `${dupTask.points}`
+    art.innerText = dupTask.category + ". " + dupTask.points + " points. " + dupTask.name + ". "
+    // btn.innerText = "remove" 
+    art.id = `dupBtn-${dupTask.task_id}`
+    inpt.addEventListener('click', removeTask) //goalTasks
+    dailyGoal.append(art)
+    art.appendChild(inpt)
+    
+}
+
+function removeTask(){
+
 }

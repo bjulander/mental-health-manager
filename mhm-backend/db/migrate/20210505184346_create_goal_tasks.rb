@@ -6,9 +6,8 @@ class CreateGoalTasks < ActiveRecord::Migration[6.1]
       t.text :name
       t.text :content, default: " "
       t.integer :points
-      t.boolean :complete, default: false
-      t.belongs_to :goal, null: false, foreign_key: true
-      t.belongs_to :task, null: false, foreign_key: true
+      t.integer :goal_id
+      t.integer :task_id
 
       t.timestamps
     end
