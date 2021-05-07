@@ -18,6 +18,7 @@ function shuffleAllTasks(tasks) {
     tasks[randomIndex] = temporaryValue
   }
   tasks.forEach(task => appendTask(task))
+  window.everyTask = tasks
 }
 
 
@@ -65,14 +66,23 @@ function appendTask(task){
 
   function taskLibraryFilterListener(event) {
     let search = event.target.value
-      filterTaskLibrary(search)
+    updateTaskList(everyTask.filter(task => task.category === search))
     }
 
-  function filterTaskLibrary(search) {
-    debugger
-    listAllTasks(tasks.filter(task => task.category === search))
-}
+   function updateTaskList(selectedTasks){
+      removeChildren(ul)
+      selectedTasks.forEach(task => appendTask(task))
 
+    }
+
+    function removeChildren(element) {
+      let child = element.lastElementChild;
+      while (child) {
+        element.removeChild(child);
+        child = element.lastElementChild;
+      }
+    }
+    
 
 
 

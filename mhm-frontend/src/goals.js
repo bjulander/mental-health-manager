@@ -52,6 +52,7 @@ function appendGoal(goal){
         const heart = document.createElement("span")
         heart.innerHTML = "&#x2661"
         heart.id = `heart-${goal.id}`
+        heart.className = "allHearts"
         heart.addEventListener("click", likeHeart)
         gl.innerText = goal.day + ". " + goal.date + ". Today's goal: " + goal.set_goal + " points!"
         gl.id = `goal-${goal.id}`
@@ -61,6 +62,11 @@ function appendGoal(goal){
 
 function likeHeart(e){
     let heart = e.target
+    let hearts = document.querySelectorAll(".allHearts")
+    hearts.forEach(h => {
+        h.style.color = colorStates["red"]
+        h.innerText = glyphStates["♥"]
+    })
     heart.innerText = glyphStates[heart.innerText];
     heart.style.color = colorStates[heart.style.color]
     window.goalId = heart.id.replace(/\D/g, "")
