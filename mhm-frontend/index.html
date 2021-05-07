@@ -28,7 +28,9 @@
 
   <!--Hidden Form--->
   <div class="dailyGoal" id="newDailyGoal">
-    <h3>Daily Goal </h3>
+    <h2>Daily Goal </h2>
+    <h7>Highlight the heart to add tasks!</h7>
+    <br>
     <button id="createBtn">New Goal</button>
       <article id="hiddenGoalForm" class="divContent">
         <form id="newGoalForm" class="formContent">
@@ -52,7 +54,10 @@
     </div>
 
  <!--Task Library-->
-  <article class="taskLib" id="taskLibrary">
+  <div class="taskLib" id="taskLibrary">
+    <div class="imgBreathing" id="imgBreath">
+    <img src="images/breathing.gif";>
+  </div>
     <h3>Task Library</h3>
   <label for="selectCategory">Filter Tasks By Type:</label>
     <select id="categoryDropdown" name="selectCategory">
@@ -71,13 +76,14 @@
           <option value="Timed">Timed</option>
           <option value="Active">Active</option>
         </select>
-        <input type="number" style="width: 30px;" min="5" max="20">
-        <label>Task:</label>
+        <label>
+        <input type="number" style="width: 30px;" min="5" max="20"> Points.</label>
+        <label> Task:</label>
         <input type="text">
         <input type="submit" value="Create">
       </form>
     </article>
-  </article>
+  </div>
 
   <script src="src/tasks.js"></script>
   <script src="src/goalTasks.js"></script>

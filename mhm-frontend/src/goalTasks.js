@@ -27,17 +27,23 @@ function appendDupTask(dupTask){
     let dailyGoal = document.getElementById(`goal-${goalId}`)//make dynamic`${dupTask.goal_id}`
     let inpt = document.createElement("input")
     let art = document.createElement("article")
+    let btn = document.createElement("button")
     inpt.type = "checkbox"
     inpt.value = `${dupTask.points}`
-    art.innerText = dupTask.category + ". " + dupTask.points + " points. " + dupTask.name + ". "
-    // btn.innerText = "remove" 
+    art.innerText = dupTask.category + ". " + dupTask.points + " points. " + dupTask.name + ". " + "Complete:"
+    btn.innerText = "remove" 
     art.id = `dupBtn-${dupTask.task_id}`
-    inpt.addEventListener('click', removeTask) //goalTasks
+    inpt.addEventListener('click', completeTask)
+    btn.addEventListener('click', removeTask)
     dailyGoal.append(art)
-    art.appendChild(inpt)
+    art.append(inpt, btn)
     
 }
 
-function removeTask(){
+function completeTask(){
+    debugger
+}
 
+function removeTask(){
+    debugger
 }
