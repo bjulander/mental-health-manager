@@ -1,4 +1,5 @@
 function postDupTask(dupTask){  
+
     const dupCat = dupTask.category
     const dupPoints = dupTask.points
     const dupName = dupTask.name

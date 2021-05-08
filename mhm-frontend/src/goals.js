@@ -72,6 +72,9 @@ function appendGoal(goal){
     const gl = document.createElement("article")
     const heart = document.createElement("span")
     const currentPnts = document.createElement("article")
+    let btn = document.createElement("button")
+    btn.innerText = "remove goal"
+    btn.value = `goalBtn-${goal.id}`
     currentPnts.innerText = "Meeting 0 of goal."
     currentPnts.id = `tracker-${goal.id}`
     currentPnts.className = "goalTrackers"
@@ -79,10 +82,13 @@ function appendGoal(goal){
     heart.id = `heart-${goal.id}`
     heart.className = "allHearts"
     heart.addEventListener("click", likeHeart)
+    btn.addEventListener('click', removeGoal)
     gl.innerText = `${goal.day}. ${goal.date}. Goal: ${goal.set_goal} points.`
     gl.id = `goal-${goal.id}`
     gl.className = "allGoals"
+    currentPnts.append(btn)
     gl.append(heart, currentPnts)
+    gl.appendChild(btn)
     dailyGoal.append(gl)
 }
 
@@ -104,4 +110,10 @@ function goalTracker (points){
     let trackNum = parseInt(goalText.replace(/\D/g, ""))
     let total = (trackNum + points)
     goalString.innerHTML = `Current points: ${total}`
+}
+
+function removeGoal(event){
+    debugger
+    let eventGoal = event.target.parentElement
+    eventGoal.remove()
 }
