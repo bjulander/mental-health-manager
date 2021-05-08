@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "category"
+    t.string "category", default: "Action"
     t.text "name"
-    t.integer "points", default: 0
+    t.integer "points", default: 5
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
