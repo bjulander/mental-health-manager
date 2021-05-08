@@ -2,16 +2,36 @@ const hiddenGoalForm = document.getElementById('hiddenGoalForm')
 const createBtn = document.getElementById("createBtn")
 const span = document.getElementsByClassName("close")[0]
 const newGoalForm = document.getElementById("newGoalForm")
+const ulGoal = document.querySelector('#goalList')
+const pastBtn = document.getElementById("pastBtn")
 
 let glyphStates = {
     "♡": "♥",
     "♥": "♡"
-  }
+}
   
   let colorStates = {
     "red" : "",
     "": "red"
-  }
+}
+
+function allGoals(){
+    fetch("http://localhost:3000/goals")
+    .then(resp => resp.json())
+    .then(listGoals)
+    .catch(error => alert(error))
+    debugger
+}
+
+function listGoals(goals) {
+  goals.forEach(goal => appendGoals(goal))
+}
+
+function appendGoals(goal){
+let artGoal = document.createElement("article")
+artGoal.innerText = `${goal.day}. ${goal.date}. Goal: ${goal.set_goal} points.`
+ulGoal.append(artGoal)
+}
 
 
 function openModal(){
@@ -44,24 +64,26 @@ function postGoal(e){
     fetch("http://localhost:3000/goals", options)
     .then(res => res.json())
     .then(appendGoal)
+    .catch(error => alert(error))
 }
 
 function appendGoal(goal){
     const dailyGoal = document.getElementById("newDailyGoal")
-        const gl = document.createElement("article")
-        const heart = document.createElement("span")
-        const currentPnts = document.createElement("article")
-        currentPnts.innerText = "Meeting 0 of goal."
-        currentPnts.id = `tracker-${goal.id}`
-        heart.innerHTML = "&#x2661"
-        heart.id = `heart-${goal.id}`
-        heart.className = "allHearts"
-        heart.addEventListener("click", likeHeart)
-        gl.innerText = `${goal.day}. ${goal.date} Goal: ${goal.set_goal} `
-        gl.id = `goal-${goal.id}`
-        gl.className = "allGoals"
-        gl.append(heart, currentPnts)
-        dailyGoal.append(gl)
+    const gl = document.createElement("article")
+    const heart = document.createElement("span")
+    const currentPnts = document.createElement("article")
+    currentPnts.innerText = "Meeting 0 of goal."
+    currentPnts.id = `tracker-${goal.id}`
+    currentPnts.className = "goalTrackers"
+    heart.innerHTML = "&#x2661"
+    heart.id = `heart-${goal.id}`
+    heart.className = "allHearts"
+    heart.addEventListener("click", likeHeart)
+    gl.innerText = `${goal.day}. ${goal.date}. Goal: ${goal.set_goal} points.`
+    gl.id = `goal-${goal.id}`
+    gl.className = "allGoals"
+    gl.append(heart, currentPnts)
+    dailyGoal.append(gl)
 }
 
 function likeHeart(e){
@@ -81,5 +103,5 @@ function goalTracker (points){
     let goalText = goalString.innerText
     let trackNum = parseInt(goalText.replace(/\D/g, ""))
     let total = (trackNum + points)
-    goalString.innerHTML = `${total} points!`
+    goalString.innerHTML = `Current points: ${total}`
 }

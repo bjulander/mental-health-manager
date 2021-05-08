@@ -1,0 +1,36 @@
+.dailyGoal {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 700px;
+    height: auto;
+    border: 4px solid #000000;
+    border-radius: 25px/30px;
+    padding: 20px;
+    background-image: url("images/images.png");
+    background-size: fill;
+}
+
+.allGoals{
+    background-color: #d9edf3;
+}
+
+.goalTrackers{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 150px;
+}
+
+.pastGoals {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 300px;
+    height: auto;
+    border: 4px solid #000000;
+    border-radius: 25px/30px;
+    padding: 5px;
+    background-image: url("images/shapes.gif");
+    background-size: fill;
+}

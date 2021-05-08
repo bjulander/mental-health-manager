@@ -6,6 +6,7 @@ function allTasks(){
   fetch("http://localhost:3000/tasks")
   .then(resp => resp.json())
   .then(shuffleAllTasks)
+  .catch(error => alert(error))
 }
 
 function shuffleAllTasks(tasks) {
@@ -54,6 +55,7 @@ function postTask(e){
   fetch("http://localhost:3000/tasks", options)
   .then(res => res.json())
   .then(appendTask)
+  .catch(error => alert(error))
 }
 
   function getTask(e){
@@ -62,6 +64,7 @@ function postTask(e){
     fetch(`http://localhost:3000/tasks/${dupInt}`)
     .then(res => res.json())
     .then(postDupTask)
+    .catch(error => alert(error))
 }
 
 function taskLibraryFilterListener(event) {
@@ -75,7 +78,6 @@ function taskLibraryFilterListener(event) {
 }
 
 function removeChildren(element) {
-  debugger
   let child = element.lastElementChild;
   while (child) {
     element.removeChild(child);

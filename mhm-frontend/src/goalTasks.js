@@ -1,4 +1,5 @@
-function postDupTask(dupTask){   
+function postDupTask(dupTask){  
+    debugger
     const dupCat = dupTask.category
     const dupPoints = dupTask.points
     const dupName = dupTask.name
@@ -21,6 +22,7 @@ function postDupTask(dupTask){
     fetch("http://localhost:3000/goal_tasks", options)
     .then(res => res.json())
     .then(appendDupTask)
+    .catch(error => alert(error))
 }
 
 function appendDupTask(dupTask){
@@ -30,7 +32,7 @@ function appendDupTask(dupTask){
     let btn = document.createElement("button")
     inpt.type = "checkbox"
     inpt.value = `${dupTask.points}`
-    art.innerText = dupTask.category + ". " + dupTask.points + " points. " + dupTask.name + ". " + "Complete:"
+    art.innerText = `${dupTask.category}. ${dupTask.points} points. ${dupTask.name}. Complete:`
     btn.innerText = "remove"
     btn.value = `dupBtn-${dupTask.task_id}`
     art.id = `dupBtn-${dupTask.task_id}`
@@ -38,12 +40,10 @@ function appendDupTask(dupTask){
     btn.addEventListener('click', removeTask)
     dailyGoal.append(art)
     art.append(inpt, btn)
-    
 }
 
 function completeTask(event){
     let points = parseInt(event.target.value)
-    // let pointInt = points.replace(/\D/g, "")
     goalTracker(points)
 }
 
