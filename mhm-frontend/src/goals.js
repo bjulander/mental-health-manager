@@ -18,19 +18,19 @@ let glyphStates = {
 function allGoals(){
     fetch("http://localhost:3000/goals")
     .then(resp => resp.json())
-    .then(listGoals)
+    .then(eachGoal)
     .catch(error => alert(error))
-    debugger
 }
 
-function listGoals(goals) {
-  goals.forEach(goal => appendGoals(goal))
+function eachGoal(goals) {
+  goals.forEach(goal => listGoals(goal))
 }
 
-function appendGoals(goal){
+function listGoals(goal){
 let artGoal = document.createElement("article")
 artGoal.innerText = `${goal.day}. ${goal.date}. Goal: ${goal.set_goal} points.`
 ulGoal.append(artGoal)
+removeChildren(pastBtn)
 }
 
 

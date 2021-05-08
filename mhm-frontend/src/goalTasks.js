@@ -1,5 +1,4 @@
 function postDupTask(dupTask){  
-    debugger
     const dupCat = dupTask.category
     const dupPoints = dupTask.points
     const dupName = dupTask.name
