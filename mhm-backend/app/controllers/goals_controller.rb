@@ -13,6 +13,6 @@ class GoalsController < ApplicationController
     private 
     
     def goal_params
-        params.require(:goal).permit(:id, :day, :date, :set_goal)
+        params.require(:goal).permit(:id, :day, :date, :set_goal, :current_points)
     end
 end

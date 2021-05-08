@@ -50,13 +50,17 @@ function appendGoal(goal){
     const dailyGoal = document.getElementById("newDailyGoal")
         const gl = document.createElement("article")
         const heart = document.createElement("span")
+        const currentPnts = document.createElement("article")
+        currentPnts.innerText = "Meeting 0 of goal."
+        currentPnts.id = `tracker-${goal.id}`
         heart.innerHTML = "&#x2661"
         heart.id = `heart-${goal.id}`
         heart.className = "allHearts"
         heart.addEventListener("click", likeHeart)
-        gl.innerText = goal.day + ". " + goal.date + ". Today's goal: " + goal.set_goal + " points!"
+        gl.innerText = `${goal.day}. ${goal.date} Goal: ${goal.set_goal} `
         gl.id = `goal-${goal.id}`
-        gl.append(heart)
+        gl.className = "allGoals"
+        gl.append(heart, currentPnts)
         dailyGoal.append(gl)
 }
 
@@ -70,4 +74,12 @@ function likeHeart(e){
     heart.innerText = glyphStates[heart.innerText];
     heart.style.color = colorStates[heart.style.color]
     window.goalId = heart.id.replace(/\D/g, "")
+}
+
+function goalTracker (points){
+    let goalString = document.querySelector(`article#tracker-${goalId}`)
+    let goalText = goalString.innerText
+    let trackNum = parseInt(goalText.replace(/\D/g, ""))
+    let total = (trackNum + points)
+    goalString.innerHTML = `${total} points!`
 }

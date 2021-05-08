@@ -31,7 +31,8 @@ function appendDupTask(dupTask){
     inpt.type = "checkbox"
     inpt.value = `${dupTask.points}`
     art.innerText = dupTask.category + ". " + dupTask.points + " points. " + dupTask.name + ". " + "Complete:"
-    btn.innerText = "remove" 
+    btn.innerText = "remove"
+    btn.value = `dupBtn-${dupTask.task_id}`
     art.id = `dupBtn-${dupTask.task_id}`
     inpt.addEventListener('click', completeTask)
     btn.addEventListener('click', removeTask)
@@ -40,10 +41,14 @@ function appendDupTask(dupTask){
     
 }
 
-function completeTask(){
-    debugger
+function completeTask(event){
+    let points = parseInt(event.target.value)
+    // let pointInt = points.replace(/\D/g, "")
+    goalTracker(points)
 }
 
-function removeTask(){
-    debugger
+function removeTask(event){
+    let eventTarget = event.target.value
+    let element = document.getElementById(`${eventTarget}`)
+    element.parentNode.removeChild(element)
 }

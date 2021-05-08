@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_184346) do
   create_table "goals", force: :cascade do |t|
     t.string "day"
     t.string "date"
+    t.integer "current_points", default: 0
     t.integer "set_goal", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

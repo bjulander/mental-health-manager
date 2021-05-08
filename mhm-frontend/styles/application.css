@@ -1,15 +1,14 @@
 body {
     font-family: Palatino, serif;
     text-align: center;
-    background-color: #d5edf3;
+    background-color: #d9edf3;
 }
 
 .topMargin {
-    height: 50px;
+    height: 55px;
     overflow: hidden;
     width: auto;
     text-align: center;
-    /* background-image: url("images/shapes.gif"); */
 }
 
 
@@ -66,4 +65,8 @@ article {
     margin-left: auto;
     margin-right: auto;
     background-color: #f5faff;
+}
+
+.allGoals{
+    background-color: #d9edf3;
 }

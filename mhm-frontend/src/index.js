@@ -7,8 +7,8 @@ allTasks()
 
 createBtn.addEventListener('click', openModal)
 span.addEventListener('click', closeModal)
-
 newGoalForm.addEventListener("submit", postGoal)
 customTask.addEventListener("submit", postTask)
-
 libraryFilter.addEventListener("change", taskLibraryFilterListener)
+morningBox.addEventListener("submit", postTask)
+

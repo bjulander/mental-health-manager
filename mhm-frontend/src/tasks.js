@@ -1,6 +1,7 @@
 const customTask = document.getElementById("customTask")
 const ul = document.querySelector('#taskList')
 const libraryFilter = document.getElementById("categoryDropdown")
+const morningBox = document.getElementById("morningEntry")
 
 function allTasks(){
     fetch("http://localhost:3000/tasks")
@@ -25,7 +26,7 @@ function shuffleAllTasks(tasks) {
 function appendTask(task){
       let btn = document.createElement('button')
       let art = document.createElement("article")
-      art.innerText = task.category + ". " + task.points + " points. " + task.name + ". "
+      art.innerText = `${task.category}. ${task.points} points. ${task.name}`
       btn.innerText = "add" 
       btn.id = `btn-${task.id}`
       btn.addEventListener('click', getTask) //goalTasks
@@ -76,6 +77,7 @@ function appendTask(task){
     }
 
     function removeChildren(element) {
+      debugger
       let child = element.lastElementChild;
       while (child) {
         element.removeChild(child);
