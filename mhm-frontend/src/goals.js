@@ -75,7 +75,7 @@ function appendGoal(goal){
     let btn = document.createElement("button")
     btn.innerText = "remove goal"
     btn.value = `goalBtn-${goal.id}`
-    currentPnts.innerText = "Meeting 0 of goal."
+    currentPnts.innerText = "0 points toward goal."
     currentPnts.id = `tracker-${goal.id}`
     currentPnts.className = "goalTrackers"
     heart.innerHTML = "&#x2661"
@@ -101,7 +101,7 @@ function likeHeart(e){
     })
     heart.innerText = glyphStates[heart.innerText];
     heart.style.color = colorStates[heart.style.color]
-    window.goalId = heart.id.replace(/\D/g, "")
+    window.goalId = parseInt(heart.id.replace(/\D/g, ""))
 }
 
 function goalTracker (points){
@@ -113,7 +113,6 @@ function goalTracker (points){
 }
 
 function removeGoal(event){
-    debugger
     let eventGoal = event.target.parentElement
     eventGoal.remove()
 }

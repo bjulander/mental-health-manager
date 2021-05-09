@@ -36,7 +36,7 @@ function appendDupTask(dupTask){
     btn.innerText = "remove"
     btn.value = `dupBtn-${dupTask.task_id}`
     art.id = `dupBtn-${dupTask.task_id}`
-    inpt.addEventListener('click', completeTask)
+    inpt.addEventListener('click', completeTask, once)
     btn.addEventListener('click', removeTask)
     dailyGoal.append(art)
     art.append(inpt, btn)

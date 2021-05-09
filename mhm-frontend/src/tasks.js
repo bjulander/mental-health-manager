@@ -26,7 +26,7 @@ function shuffleAllTasks(tasks) {
 function appendTask(task){
   let btn = document.createElement('button')
   let art = document.createElement("article")
-  art.innerText = `${task.category}. ${task.points} points. ${task.name}`
+  art.innerText = `${task.category}. ${task.points} points. ${task.name} `
   btn.innerText = "add" 
   btn.id = `btn-${task.id}`
   btn.addEventListener('click', getTask) //goalTasks
