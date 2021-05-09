@@ -1,3 +1,99 @@
+class Goal{
+
+    static allDailyGoals = []
+
+    constructor(goal) {
+        this.id = goal.id
+        this.date = goal.attributes.date
+        this.day = goal.attributes.day
+        this.set_goal = goal.attributes.set_goal
+        this.goalTasks = goal.attributes.goalTasks.map(goalTask => new GoalTask(goalTask))
+        Goal.allDailyGoals.push(this)
+    }
+
+    appendGoal(){
+        const dailyGoal = document.getElementById("newDailyGoal")
+        const gl = document.createElement("article")
+        const heart = document.createElement("span")
+        const currentPnts = document.createElement("article")
+        let btn = document.createElement("button")
+        btn.innerText = "remove goal"
+        btn.value = `goalBtn-${this.id}`
+        currentPnts.innerText = "0 points toward goal."
+        currentPnts.id = `tracker-${this.id}`
+        currentPnts.className = "goalTrackers"
+        heart.innerHTML = "&#x2661"
+        heart.id = `heart-${this.id}`
+        heart.className = "allHearts"
+        heart.addEventListener("click", likeHeart)
+        btn.addEventListener('click', removeGoal)
+        gl.innerText = `${this.day}. ${this.date}. Goal: ${this.set_goal} points.`
+        gl.id = `goal-${this.id}`
+        gl.className = "allGoals"
+        currentPnts.append(btn)
+        gl.append(heart, currentPnts)
+        gl.appendChild(btn)
+        dailyGoal.append(gl)
+    }
+
+    postGoal(e){
+        debugger
+        hiddenGoalForm.style.display = "none"
+        e.preventDefault()
+        const inputDate = e.target.children[2].value
+        const inputDay = e.target.children[3].value
+        const inputGoal = e.target.children[5].value
+        const body = {
+            goal: {
+                day: inputDay, 
+                date: inputDate,
+                set_goal: inputGoal
+            }
+        }
+        const options = {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"},
+            body: JSON.stringify(body)
+        }
+        e.target.reset()
+    
+        fetch("http://localhost:3000/goals", options)
+        .then(res => res.json())
+        .then(goal => {
+        let newGoal = new Goal(goal)
+        newGoal.appendGoal()
+        })
+    }
+
+    static fetchGoals(){
+        fetch("http://localhost:3000/goals")
+        .then(resp => resp.json())
+        .then(this.eachGoal)
+    }
+    
+
+    static eachGoal() {
+        for (let goal of goals){
+        let newGoal = new Goal(goal)
+        newGoal.appendPastGoals()
+        }
+    }
+
+    appendPastGoals(){
+        let artGoal = document.createElement("article")
+        artGoal.innerText = `${this.day}. ${this.date}. Goal: ${this.set_goal} points.`
+        ulGoal.append(artGoal)
+        removeChildren(pastBtn)
+    }
+
+}
+
+
+
+
+
+//OG
 const hiddenGoalForm = document.getElementById('hiddenGoalForm')
 const createBtn = document.getElementById("createBtn")
 const span = document.getElementsByClassName("close")[0]

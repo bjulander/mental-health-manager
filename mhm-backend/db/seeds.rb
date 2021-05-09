@@ -12,8 +12,8 @@ Goal.create(day: "Tuesday", date: "May the Fourth", set_goal: 40)
 Goal.create(day: "Wednesday", date: "Revenge of the Fifth", set_goal: 55)
 
 
-GoalTask.create(category: "Verbal", name: "Say aloud 5 good attributes about yourself", points: 5, goal_id: 1, task_id: 1)
-GoalTask.create(category: "Writing", name: "Write down 3 affirmations", points: 10, goal_id: 2, task_id: 2)
+GoalTask.create(category: "Verbal", name: "5 good qualities about yourself.", points: 5, goal_id: 1, task_id: 1)
+GoalTask.create(category: "Writing", name: "3 affirmations.", points: 10, goal_id: 2, task_id: 2)
 GoalTask.create(category: "Timed", name: "10-minute Meditation", points: 15, goal_id: 3, task_id: 3)
 
 Task.create(category: "Verbal", name: "5 good qualities about yourself.", points: 5)

@@ -11,7 +11,13 @@ allTasks()
 
 createBtn.addEventListener('click', openModal)
 span.addEventListener('click', closeModal)
-newGoalForm.addEventListener("submit", postGoal)
+// newGoalForm.addEventListener("submit", postGoal)
 customTask.addEventListener("submit", postTask)
 libraryFilter.addEventListener("change", taskLibraryFilterListener)
-pastBtn.addEventListener("click", allGoals, once)
+// pastBtn.addEventListener("click", allGoals, once)
+
+
+
+// OOJS
+pastBtn.addEventListener("click", Goal.fetchGoals, once)
+newGoalForm.addEventListener("submit", postGoal)

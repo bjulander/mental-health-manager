@@ -1,3 +1,8 @@
+
+
+
+
+//OG
 const customTask = document.getElementById("customTask")
 const ul = document.querySelector('#taskList')
 const libraryFilter = document.getElementById("categoryDropdown")
@@ -85,6 +90,3 @@ function removeChildren(element) {
   }
 }
     
-
-
-

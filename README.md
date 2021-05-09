@@ -7,8 +7,11 @@ First, clone this repo:
 ```
 git clone <link to this repo>
 ```
+`cd mhm-frontend`
 
 Type `open index.html`
+
+`cd ..`
 
 The backend of this single page application runs on a Rails API.
 
@@ -23,6 +26,10 @@ bundle install
 
 Run the API with:
 ```
+rails db:migrate
+
+rails db:seed
+
 rails s
 ```
 
