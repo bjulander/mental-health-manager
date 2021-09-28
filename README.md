@@ -7,6 +7,7 @@ First, clone this repo:
 ```
 git clone git@github.com:bjulander/mental-health-manager.git
 ```
+Then in the command line enter one at a time:
 ```
 cd mhm-frontend
 open index.html
@@ -14,7 +15,7 @@ cd ..
 ```
 The backend of this single page application runs on a Rails API.
 ```
-`cd mhm-backend`
+cd mhm-backend
 ```
 Then run:
 ```
