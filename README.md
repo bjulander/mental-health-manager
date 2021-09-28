@@ -6,14 +6,12 @@ First, clone this repo:
 
 ```
 git clone git@github.com:bjulander/mental-health-manager.git
-
 ```
-`cd mhm-frontend`
-
-Type `open index.html`
-
-`cd ..`
-
+```
+cd mhm-frontend
+open index.html
+cd ..
+```
 The backend of this single page application runs on a Rails API.
 ```
 `cd mhm-backend`
