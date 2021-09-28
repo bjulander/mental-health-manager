@@ -17,7 +17,7 @@ Type `open index.html`
 The backend of this single page application runs on a Rails API.
 ```
 `cd mhm-backend`
-
+```
 Then run:
 ```
 bundle install
