@@ -7,6 +7,26 @@ First, clone this repo:
 ```
 git clone <link to this repo>
 ```
+
+The backend of this single page application runs on a Rails API.
+
+```
+cd mhm-backend
+```
+
+Then run:
+```
+bundle install
+```
+
+Run the API with:
+```
+rails db:migrate
+
+rails db:seed
+
+rails s
+
 `cd mhm-frontend`
 
 Type `open index.html`
@@ -16,7 +36,7 @@ Type `open index.html`
 The backend of this single page application runs on a Rails API.
 
 ```
-cd backend/mhm-backend
+cd mhm-backend
 ```
 
 Then run:
@@ -32,6 +52,7 @@ rails db:seed
 
 rails s
 ```
+Refresh the page
 
 ## Author
  - [Blake Julander](https://github.com/bjulander)
